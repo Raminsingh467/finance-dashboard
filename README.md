@@ -1,16 +1,67 @@
-# React + Vite
+# Finance Dashboard UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Overview
 
-Currently, two official plugins are available:
+This is a frontend finance dashboard built as part of an assignment to demonstrate UI design, state management, and data visualization.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Features
 
-## React Compiler
+Dashboard with summary cards (Balance, Income, Expenses)
+Line chart (balance trend)
+Pie chart (expense breakdown)
+Transactions table with:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Search
+Filter (Income/Expense)
+  * Sorting (Date/Amount)
+* 🔐 Role-based UI:
 
-## Expanding the ESLint configuration
+  * Viewer → read-only
+  * Admin → can add transactions
+* 📊 Insights section:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+  * Highest spending category
+  * Total expenses
+
+---
+
+## 🛠 Tech Stack
+
+* React (Vite)
+* Tailwind CSS
+* Recharts
+* Context API (state management)
+
+---
+
+## 📦 Setup
+
+```bash
+npm install
+npm run dev
+```
+
+---
+
+## 🌐 Live Demo
+
+(Add your Vercel link here)
+
+---
+
+## 🧠 Approach
+
+The project focuses on:
+
+* Clean component structure
+* Reusable UI components
+* Managing global state using Context API
+* Simulating role-based UI behavior
+
+---
+
+## 📌 Notes
+
+* Uses mock data (no backend)
+* Focused on UI/UX and frontend logic
+* Designed to be responsive and clean
