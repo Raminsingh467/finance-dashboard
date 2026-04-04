@@ -1,67 +1,58 @@
-# Finance Dashboard UI
+Finance Dashboard UI
 
 Overview
+This project is a responsive and interactive Finance Dashboard built as part of a Frontend Developer Intern assignment.
 
-This is a frontend finance dashboard built as part of an assignment to demonstrate UI design, state management, and data visualization.
+It allows users to track financial activities, visualize data, and manage transactions with a clean UI.
+
 
 Features
 
-Dashboard with summary cards (Balance, Income, Expenses)
-Line chart (balance trend)
-Pie chart (expense breakdown)
-Transactions table with:
+Dashboard
+- Total Balance, Income, Expenses cards
+- Line chart (balance trend)
+- Pie chart (expense breakdown with hover details)
 
-Search
-Filter (Income/Expense)
-  * Sorting (Date/Amount)
-* 🔐 Role-based UI:
+Transactions
+- View all transactions
+- Search, filter, and sort
+- Add new transactions (Admin)
+- Delete transactions (Admin)
+- Export data as CSV
 
-  * Viewer → read-only
-  * Admin → can add transactions
-* 📊 Insights section:
+Role-Based UI
+- Viewer → Read-only access
+- Admin → Add/Delete transactions
+- Role switch via dropdown
 
-  * Highest spending category
-  * Total expenses
+Insights
+- Highest spending category
+- Total expenses
+- Smart financial observation
 
----
 
-## 🛠 Tech Stack
 
-* React (Vite)
-* Tailwind CSS
-* Recharts
-* Context API (state management)
+Enhancements
+- Dark / Light mode toggle
+- Data persistence using Local Storage
+- Smooth UI animations
+- Responsive design
 
----
 
-## 📦 Setup
+State Management
+- Implemented using React Context API
+- Centralized state for transactions, role, and theme
+
+
+
+Tech Stack
+- React (Vite)
+- Tailwind CSS
+- Recharts
+
+
+## 📦 Installation
 
 ```bash
 npm install
 npm run dev
-```
-
----
-
-## 🌐 Live Demo
-
-(Add your Vercel link here)
-
----
-
-## 🧠 Approach
-
-The project focuses on:
-
-* Clean component structure
-* Reusable UI components
-* Managing global state using Context API
-* Simulating role-based UI behavior
-
----
-
-## 📌 Notes
-
-* Uses mock data (no backend)
-* Focused on UI/UX and frontend logic
-* Designed to be responsive and clean
