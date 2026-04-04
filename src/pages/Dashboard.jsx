@@ -1,5 +1,5 @@
 import React from "react";
-import { useApp } from "../context/AppContext"; // ✅ use context
+import { useApp } from "../context/AppContext";
 
 import {
   LineChart,
@@ -10,12 +10,13 @@ import {
   CartesianGrid,
   PieChart,
   Pie,
-  Cell
+  Cell,
+  ResponsiveContainer
 } from "recharts";
 
 const Dashboard = () => {
 
-  const { transactions } = useApp(); // ✅ get dynamic data
+  const { transactions } = useApp();
 
   // Calculations
   const totalIncome = transactions
@@ -50,25 +51,39 @@ const Dashboard = () => {
 
   const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
+  // Custom Tooltip 
+  const CustomTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="bg-white dark:bg-gray-800 p-2 rounded shadow">
+          <p className="text-sm dark:text-white">
+            {payload[0].name}: ₹{payload[0].value}
+          </p>
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
     <div>
 
       {/* Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
 
-        <div className="bg-white p-5 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-          <h3 className="text-gray-500">Total Balance</h3>
-          <p className="text-2xl font-bold">₹{balance}</p>
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300">
+          <h3 className="text-gray-500 dark:text-gray-300 text-sm">💰 Total Balance</h3>
+          <p className="text-3xl font-bold mt-2 dark:text-white">₹{balance}</p>
         </div>
 
-        <div className="bg-white p-5 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-          <h3 className="text-gray-500">Income</h3>
-          <p className="text-2xl font-bold text-green-600">₹{totalIncome}</p>
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300">
+          <h3 className="text-gray-500 dark:text-gray-300 text-sm">📈 Income</h3>
+          <p className="text-3xl font-bold mt-2 text-green-600">₹{totalIncome}</p>
         </div>
 
-        <div className="bg-white p-5 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-          <h3 className="text-gray-500">Expenses</h3>
-          <p className="text-2xl font-bold text-red-500">₹{totalExpense}</p>
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300">
+          <h3 className="text-gray-500 dark:text-gray-300 text-sm">📉 Expenses</h3>
+          <p className="text-3xl font-bold mt-2 text-red-500">₹{totalExpense}</p>
         </div>
 
       </div>
@@ -76,31 +91,51 @@ const Dashboard = () => {
       {/* Charts */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-        <div className="bg-white p-4 rounded-xl shadow-md">
-          <h3 className="mb-2 font-semibold">Balance Trend</h3>
-          <LineChart width={300} height={200} data={chartData}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Line type="monotone" dataKey="amount" stroke="#8884d8" />
-          </LineChart>
+        {/* Line Chart */}
+        <div className="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md">
+          <h3 className="mb-2 font-semibold dark:text-white">Balance Trend</h3>
+
+          <div className="w-full h-64">
+            <ResponsiveContainer>
+              <LineChart data={chartData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip /> {/* default tooltip OK */}
+                <Line type="monotone" dataKey="amount" stroke="#6366f1" />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
         </div>
 
-        <div className="bg-white p-4 rounded-xl shadow-md">
-          <h3 className="mb-2 font-semibold">Expense Breakdown</h3>
-          <PieChart width={300} height={200}>
-            <Pie
-              data={categoryData}
-              dataKey="value"
-              nameKey="name"
-              outerRadius={80}
-            >
-              {categoryData.map((entry, index) => (
-                <Cell key={index} fill={COLORS[index % COLORS.length]} />
-              ))}
-            </Pie>
-          </PieChart>
+        {/* Pie Chart */}
+        <div className="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md">
+          <h3 className="mb-2 font-semibold dark:text-white">Expense Breakdown</h3>
+
+          <div className="w-full h-64">
+            <ResponsiveContainer>
+              <PieChart>
+                
+                {/* CUSTOM TOOLTIP USED */}
+                <Tooltip content={<CustomTooltip />} />
+
+                <Pie
+                  data={categoryData}
+                  dataKey="value"
+                  nameKey="name"
+                  outerRadius={80}
+                >
+                  {categoryData.map((entry, index) => (
+                    <Cell
+                      key={index}
+                      fill={COLORS[index % COLORS.length]}
+                    />
+                  ))}
+                </Pie>
+
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
         </div>
 
       </div>
