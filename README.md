@@ -56,3 +56,6 @@ Tech Stack
 ```bash
 npm install
 npm run dev
+
+Author
+Ramin Singh
