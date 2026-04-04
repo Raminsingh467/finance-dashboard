@@ -67,7 +67,7 @@ The focus of this project is on frontend architecture, UI/UX design, and state m
 ## Tech Stack
 
 - React (Vite)
-- ailwind CSS
+- Tailwind CSS
 - Recharts
 - Context API
 - Local Storage
