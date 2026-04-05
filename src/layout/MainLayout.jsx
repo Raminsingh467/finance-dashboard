@@ -10,7 +10,7 @@ const MainLayout = ({ children, setPage }) => {
       {/* Sidebar */}
       <div className="w-64 bg-gray-900 dark:bg-black text-white p-6 hidden md:flex flex-col justify-between transition duration-300">
         <div>
-          <h1 className="text-2xl font-bold mb-10">💰 Finance</h1>
+          <h1 className="text-2xl font-bold mb-10"> Finance</h1>
 
           <ul className="space-y-4">
             <li

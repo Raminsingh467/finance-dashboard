@@ -72,7 +72,7 @@ const Dashboard = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
 
         <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300">
-          <h3 className="text-gray-500 dark:text-gray-300 text-sm">💰 Total Balance</h3>
+          <h3 className="text-gray-500 dark:text-gray-300 text-sm">Total Balance</h3>
           <p className="text-3xl font-bold mt-2 dark:text-white">₹{balance}</p>
         </div>
 
