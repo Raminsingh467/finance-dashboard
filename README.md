@@ -81,3 +81,9 @@ Clone the repository:
 ```bash
 git clone https://github.com/raminsingh467/finance-dashboard.git
 cd finance-dashboard
+
+# Install dependencies
+  npm install
+
+# Run the development server:
+  npm run dev
