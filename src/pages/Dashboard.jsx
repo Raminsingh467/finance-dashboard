@@ -77,12 +77,12 @@ const Dashboard = () => {
         </div>
 
         <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300">
-          <h3 className="text-gray-500 dark:text-gray-300 text-sm">📈 Income</h3>
+          <h3 className="text-gray-500 dark:text-gray-300 text-sm">Income</h3>
           <p className="text-3xl font-bold mt-2 text-green-600">₹{totalIncome}</p>
         </div>
 
         <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300">
-          <h3 className="text-gray-500 dark:text-gray-300 text-sm">📉 Expenses</h3>
+          <h3 className="text-gray-500 dark:text-gray-300 text-sm">Expenses</h3>
           <p className="text-3xl font-bold mt-2 text-red-500">₹{totalExpense}</p>
         </div>
 
