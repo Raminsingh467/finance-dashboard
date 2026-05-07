@@ -78,7 +78,7 @@ The focus of this project is on frontend architecture, UI/UX design, and state m
 
 ## Installation & Setup
 
-Clone the repository:-
+Clone the repository:
 
 ```bash
 git clone https://github.com/raminsingh467/finance-dashboard.git
